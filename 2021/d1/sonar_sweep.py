@@ -11,6 +11,7 @@ def part1():
             count += 1
     return count
 
+
 # Return number of times sum of 3-measurement sliding window increases from previous window
 def part2():
     prev_sum = 0
@@ -26,3 +27,16 @@ def part2():
 
 print(f"Part 1 output: {part1()}")
 print(f"Part 2 output: {part2()}")  
+
+# r/adventofcode Solution
+# Taken from u/Chitinid 
+
+# Booleans cast to ints when summed
+def part1_revised():
+    return sum(x < y for x, y in zip(nums, nums[1:]))
+
+# Key insight:
+# For [a, b, c, d], b + c + d > a + b + c if d > a
+def part2_revised():
+    return sum(x > y for x, y in zip(nums, nums[3:]))
+
