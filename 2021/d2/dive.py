@@ -6,8 +6,8 @@ def read_input():
 
 commands = read_input()
 
-# Calculate horizontal position and depth after input
-# Return final horizontal position * final depth
+## Calculate horizontal position and depth after input
+## Return final horizontal position * final depth
 def part_one():
     position, depth = 0, 0
     for direction, unit in commands:
@@ -19,10 +19,10 @@ def part_one():
             depth -= unit
     return position * depth
 
-# Integrate third parameter: aim
-# aim += DOWN amount
-# aim -= UP amount 
-# forward X increases depth by (aim * X)
+## Integrate third parameter: aim
+## aim += DOWN amount
+## aim -= UP amount 
+## forward X increases depth by (aim * X)
 def part_two():
     position, depth, aim = 0, 0, 0
     for direction, unit in commands:
@@ -37,3 +37,22 @@ def part_two():
 
 print(part_one())
 print(part_two())
+
+# Taken from u/4HbQ
+# Computes answer for both parts in one pass
+# Key insight: aim represents depth for part 1
+def dive():
+    pos = depth = aim = 0
+    with open('input.txt') as f:
+        for line in f:
+            match line.split():
+                case 'forward', n:
+                    pos += int(n)
+                    depth += int(n) * aim
+                case 'up', n:
+                    aim -= int(n)
+                case 'down', n:
+                    aim += int(n)
+    print(f'Part 1: {pos * aim}', f'Part 2: {pos * depth}')
+
+dive()
