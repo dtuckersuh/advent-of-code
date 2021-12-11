@@ -15,7 +15,7 @@ def venture_vents():
     vent_list = []
     count = Counter()
     for line in lines:
-        coordinates = re.split('\W+', line)
+        coordinates = re.split('\\W+', line)
         coordinates = [int(coord) for coord in coordinates]
         start = tuple(coordinates[:2])
         end = tuple(coordinates[2:])
