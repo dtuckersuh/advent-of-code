@@ -11,21 +11,17 @@ def read_data():
         return fish
 
 def lanternfish(fish, days):
-    # Naive Implementation:
-    # If age == 0, create new fish w/ age of 8 and reset current fish timer to 6
     fish_count = Counter(fish)
+    new_fish = 8 
+    reset_age = 6
     for _ in range(days):
-        num = fish_count[0]
-        if num != 0:
-            fish_count[0] = 0
-            fish_count[6] += num 
-            fish_count[8] += num
-        else:
-            for age, num in fish_count.items():
-                fish_count[age] = num - 1
-    print(fish_count)
-    return sum(fish)
+        fish_to_reset = fish_count[0]
+        for i in range(new_fish):
+            fish_count[i] = fish_count[i + 1]
+        fish_count[new_fish] = fish_to_reset
+        fish_count[reset_age] += fish_to_reset
+    return sum(fish_count.values())
 
 input = read_data()
-output = lanternfish(input, 80)
+output = lanternfish(input, 256)
 print(output)
