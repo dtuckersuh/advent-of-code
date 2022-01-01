@@ -1,5 +1,5 @@
 # advent-of-code
-My solutions for Advent of Code
+My terrible, sparse solutions for Advent of Code
 
 ![](https://img.shields.io/badge/day%20📅-26-blue)
 
