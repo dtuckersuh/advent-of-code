@@ -1,7 +1,7 @@
 # advent-of-code
 My terrible, sparse solutions for Advent of Code
 
-![](https://img.shields.io/badge/day%20📅-7-blue)
+![](https://img.shields.io/badge/day%20📅-8-blue)
 
 ![](https://img.shields.io/badge/stars%20⭐-4-yellow)
 
